@@ -1,0 +1,44 @@
+:root{
+  --bg:#0f1419; --panel:#1b2430; --ink:#e8eef7; --muted:#9aa7bd;
+  --accent:#7c3aed; --good:#10b981; --card:#151c26; --line:#2a3442;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font:15px/1.45 system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+header{padding:24px; border-bottom:1px solid var(--line); background:linear-gradient(180deg,#121924,#0f1419)}
+h1{margin:0 0 6px 0}
+main{padding:16px; max-width:1100px; margin:0 auto}
+.controls{display:flex; gap:12px; align-items:end; margin-bottom:12px; flex-wrap:wrap}
+.field{display:flex; flex-direction:column; gap:6px}
+input[type=number]{padding:8px 10px; background:#0d131b; color:var(--ink); border:1px solid var(--line); border-radius:8px; width:130px}
+button{
+  padding:10px 16px; border:0; border-radius:12px; background:var(--accent); color:white; font-weight:600; cursor:pointer;
+  transition:transform .05s ease, opacity .2s ease;
+}
+button:active{transform:scale(0.98)}
+.panes{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+.pane{display:flex; flex-direction:column; gap:8px}
+textarea{
+  height:330px; resize:vertical; padding:12px; background:var(--panel); color:var(--ink);
+  border:1px solid var(--line); border-radius:12px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+.result{margin-top:16px}
+.hidden{display:none}
+.grid{display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:12px; margin-bottom:12px}
+.card{
+  background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px;
+}
+.card .label{color:var(--muted); font-size:12px}
+.card .value{font-size:16px; font-weight:700}
+.card.highlight{border-color:#3b82f6; box-shadow:0 0 0 1px #3b82f6 inset}
+.big{font-size:22px}
+.msg{
+  margin-top:8px; background:#0d131b; border:1px dashed var(--line); padding:10px; border-radius:8px; color:#cbd5e1
+}
+.bar{height:12px; background:#0b1220; border:1px solid var(--line); border-radius:999px; overflow:hidden; margin-top:10px}
+#barFill{height:100%; width:0%; background:var(--good); transition:width .4s ease}
+footer{padding:16px; color:var(--muted); text-align:center}
+@media (max-width:900px){ .grid{grid-template-columns: repeat(2, minmax(0,1fr));} .panes{grid-template-columns:1fr} }
