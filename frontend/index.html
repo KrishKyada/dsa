@@ -2,27 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>CodePlag Analyzer — C++ DSA Edition</title>
+  <title>🧠 CodePlag Analyzer — C++ DSA Edition</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <h1>🧠 CodePlag Analyzer</h1>
-    <p>All-C++ backend • DSA: Rolling Hash, Winnowing, Edit Distance, AST</p>
+    <p>All-C++ Backend • Plagiarism Detection via Winnowing · Edit Distance · AST</p>
   </header>
 
   <main>
     <section class="controls">
-      <div class="field">
-        <label>k-gram (k)</label>
-        <input id="k" type="number" min="2" value="5" />
+      <div class="control-box">
+        <div class="field">
+          <label>k-gram (k)</label>
+          <input id="k" type="number" min="2" value="5" />
+        </div>
+        <div class="field">
+          <label>Window (w)</label>
+          <input id="w" type="number" min="2" value="4" />
+        </div>
+        <button id="analyzeBtn">🔍 Analyze Codes</button>
       </div>
-      <div class="field">
-        <label>Window (w)</label>
-        <input id="w" type="number" min="2" value="4" />
-      </div>
-      <button id="analyzeBtn">Analyze</button>
     </section>
 
     <section class="panes">
@@ -37,26 +39,30 @@
     </section>
 
     <section id="result" class="result hidden">
-      <h3>Result</h3>
+      <h3>📊 Analysis Result</h3>
       <div class="grid">
-        <div class="card"><div class="label">Jaccard (winnowing)</div><div id="jaccard" class="value">—</div></div>
+        <div class="card"><div class="label">Jaccard (Winnowing)</div><div id="jaccard" class="value">—</div></div>
         <div class="card"><div class="label">Edit Similarity</div><div id="edSim" class="value">—</div></div>
         <div class="card"><div class="label">AST Structural</div><div id="structSim" class="value">—</div></div>
         <div class="card highlight"><div class="label">Final Score</div><div id="score" class="value big">—</div></div>
-        <div class="card"><div class="label">Tokens A</div><div id="tokensA" class="value">—</div></div>
-        <div class="card"><div class="label">Tokens B</div><div id="tokensB" class="value">—</div></div>
-        <div class="card"><div class="label">Fingerprints A</div><div id="fpsA" class="value">—</div></div>
-        <div class="card"><div class="label">Fingerprints B</div><div id="fpsB" class="value">—</div></div>
       </div>
+
+      <div class="grid small">
+        <div class="card"><div class="label">Tokens (A)</div><div id="tokensA" class="value">—</div></div>
+        <div class="card"><div class="label">Tokens (B)</div><div id="tokensB" class="value">—</div></div>
+        <div class="card"><div class="label">Fingerprints (A)</div><div id="fpsA" class="value">—</div></div>
+        <div class="card"><div class="label">Fingerprints (B)</div><div id="fpsB" class="value">—</div></div>
+      </div>
+
       <pre id="msg" class="msg"></pre>
       <div id="bar" class="bar"><div id="barFill"></div></div>
     </section>
   </main>
 
   <footer>
-    <small>Made with ❤️ — pure C++ backend</small>
+    <small>Made with ❤️ using pure C++ logic and Flask bridge</small>
   </footer>
 
-  <script src="/app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
