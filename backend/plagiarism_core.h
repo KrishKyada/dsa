@@ -5,12 +5,16 @@
 using namespace std;
 
 struct AnalyzeResult {
-    double jaccard=0, editSim=0, structSim=0, score=0;
-    int tokensA=0, tokensB=0, fpsA=0, fpsB=0;
+    double jaccard = 0.0;
+    int tokensA = 0, tokensB = 0;
+    int fpsA = 0, fpsB = 0;
     string message;
 };
 
-// Function declaration
-AnalyzeResult analyzePair(const string& codeA, const string& codeB, int k, int w);
+string normalizeStrip(const string& s);
+vector<string> tokenize(const string& code);
+vector<uint64_t> fingerprintTokens(const vector<string>& tokens, int window);
+double jaccardFingerprint(const vector<uint64_t>& a, const vector<uint64_t>& b);
+AnalyzeResult analyzePair(const string& codeA, const string& codeB, int window);
 
 #endif
